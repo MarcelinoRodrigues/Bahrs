@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 
 namespace bahrsDB.Models
@@ -32,6 +33,7 @@ namespace bahrsDB.Models
         /// <summary>
         /// Nome do vendedor
         /// </summary>
+        [DisplayName("Nome")]
         public string Name { get; set; }
         /// <summary>
         /// Email do vendedor
@@ -40,15 +42,18 @@ namespace bahrsDB.Models
         /// <summary>
         /// Aniversario do vendedor
         /// </summary>
+        [DisplayName("Aniversário")]
         public DateTime BirthDate { get; set; }
         /// <summary>
         /// Salário do vendedor
         /// </summary>
+        [DisplayName("Salário Base")]
         public double BaseSalary { get; set; }
         /// <summary>
         /// Associação com o Departamento
         /// Um Vendedor pode ter um departamento
         /// </summary>
+        [DisplayName("Departamento")]
         public Department Department { get; set; }
         /// <summary>
         /// Id do departamento

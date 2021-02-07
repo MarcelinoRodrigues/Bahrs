@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
@@ -16,6 +17,7 @@ namespace bahrsDB.Models
         /// <summary>
         /// Nome do departamento
         /// </summary>
+        [DisplayName("Nome")]
         public string Name { get; set; }
         /// <summary>
         /// Associação com Vendedores
