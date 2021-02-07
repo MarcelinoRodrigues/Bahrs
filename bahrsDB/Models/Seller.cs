@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 
 namespace bahrsDB.Models
@@ -38,16 +39,20 @@ namespace bahrsDB.Models
         /// <summary>
         /// Email do vendedor
         /// </summary>
+        [DataType(DataType.EmailAddress)]
         public string Email { get; set; }
         /// <summary>
         /// Aniversario do vendedor
         /// </summary>
         [DisplayName("Aniversário")]
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime BirthDate { get; set; }
         /// <summary>
         /// Salário do vendedor
         /// </summary>
         [DisplayName("Salário Base")]
+        [DisplayFormat(DataFormatString ="{0:F2}")]
         public double BaseSalary { get; set; }
         /// <summary>
         /// Associação com o Departamento
@@ -58,6 +63,7 @@ namespace bahrsDB.Models
         /// <summary>
         /// Id do departamento
         /// </summary>
+        [DisplayName("Departamento")]
         public int DepartmentId { get; set; }
         /// <summary>
         /// Associação com o recorde do vendedor
