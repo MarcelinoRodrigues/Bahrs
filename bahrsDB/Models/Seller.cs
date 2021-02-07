@@ -35,23 +35,30 @@ namespace bahrsDB.Models
         /// Nome do vendedor
         /// </summary>
         [DisplayName("Nome")]
+        [Required(ErrorMessage = "{0} Requerido")]
+        [StringLength(60, MinimumLength = 3, ErrorMessage = "Tamanho do {0} deve ser entre {2} e {1}")]
         public string Name { get; set; }
         /// <summary>
         /// Email do vendedor
         /// </summary>
         [DataType(DataType.EmailAddress)]
+        [Required(ErrorMessage = "{0} Requerido")]
+        [EmailAddress(ErrorMessage = "Email invalido")]
         public string Email { get; set; }
         /// <summary>
         /// Aniversario do vendedor
         /// </summary>
         [DisplayName("Aniversário")]
         [DataType(DataType.Date)]
+        [Required(ErrorMessage = "{0} Requerido")]
         [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime BirthDate { get; set; }
         /// <summary>
         /// Salário do vendedor
         /// </summary>
         [DisplayName("Salário Base")]
+        [Range(100.0,50000.0,ErrorMessage = "{0} Deve ser entre {1} e {2}")]
+        [Required(ErrorMessage = "{0} Requerido")]
         [DisplayFormat(DataFormatString ="{0:F2}")]
         public double BaseSalary { get; set; }
         /// <summary>
