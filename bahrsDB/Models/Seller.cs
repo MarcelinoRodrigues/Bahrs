@@ -72,29 +72,8 @@ namespace bahrsDB.Models
         /// </summary>
         [DisplayName("Departamento")]
         public int DepartmentId { get; set; }
-        /// <summary>
-        /// Associação com o recorde do vendedor
-        /// Um Vendedor pode ter um ou mais Vendas
-        /// </summary>
-        public ICollection<SalesRecord> Sales { get; set; } = new List<SalesRecord>();
 
         #endregion
 
-        #region Propriedades Implementadas
-
-        public void AddSales(SalesRecord sr)
-        {
-            Sales.Add(sr);
-        }
-        public void RemoveSales(SalesRecord sr)
-        {
-            Sales.Remove(sr);
-        }
-        public double TotalSales(DateTime initial,DateTime final)
-        {
-            return Sales.Where(sr => sr.Date >= initial && sr.Date <= final)
-                .Sum(sr => sr.Amount);
-        }
-        #endregion
     }
 }
