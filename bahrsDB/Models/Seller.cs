@@ -12,8 +12,21 @@ namespace bahrsDB.Models
     public class Seller
     {
         #region Construtores
+
+        /// <summary>
+        /// Construtor do vendedor
+        /// </summary>
         public Seller() { }
 
+        /// <summary>
+        /// Construtor do vendedor 
+        /// </summary>
+        /// <param name="id"></param>
+        /// <param name="name"></param>
+        /// <param name="email"></param>
+        /// <param name="birthDate"></param>
+        /// <param name="baseSalary"></param>
+        /// <param name="department"></param>
         public Seller(int id, string name, string email, DateTime birthDate, double baseSalary, Department department)
         {
             Id = id;
@@ -23,6 +36,7 @@ namespace bahrsDB.Models
             BaseSalary = baseSalary;
             Department = department;
         }
+
         #endregion
 
         #region Propriedade
