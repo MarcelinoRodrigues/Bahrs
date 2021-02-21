@@ -12,6 +12,10 @@ namespace bahrsDB.Models
         /// </summary>
         public int Id { get; set; }
         /// <summary>
+        /// Nome do Veiculo
+        /// </summary>
+        public string Nome { get; set; }
+        /// <summary>
         /// placa do veiculo
         /// </summary>
         public string Placa { get; set; }

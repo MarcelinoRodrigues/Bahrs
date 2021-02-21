@@ -29,11 +29,21 @@ namespace bahrsDB.Models
         public DateTime Vencimento { get; set; }
         /// <summary>
         /// veiculo do estacionamento
+        /// Um estacionamento pode ter um veiculo
         /// </summary>
         public Vehicle Veiculo { get; set; }
         /// <summary>
         /// atendente do estacionamento
+        /// um estacionamento pode ter um atendente
         /// </summary>
         public Employee Atendente { get; set; }
+        /// <summary>
+        /// Id do veiculo
+        /// </summary>
+        public int VeiculoId { get; set; }
+        /// <summary>
+        /// Id do veiculo
+        /// </summary>
+        public int AtendenteId { get; set; }
     }
 }

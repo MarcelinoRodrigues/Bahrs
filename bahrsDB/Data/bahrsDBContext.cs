@@ -21,5 +21,9 @@ namespace bahrsDB.Data
         /// Conexao com a entidade Seller
         /// </summary>
         public DbSet<Seller> Seller { get; set; }
+        /// <summary>
+        /// Conexao com a entidade Vehicle
+        /// </summary>
+        public DbSet<Vehicle> Vehicle { get; set; }
     }
 }

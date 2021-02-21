@@ -10,6 +10,20 @@ namespace bahrsDB.Models
     [Table("Department")]
     public class Department
     {
+        #region Construtores
+
+        public Department() { }
+
+        public Department(int id, string name)
+        {
+            Id = id;
+            Name = name;
+        }
+
+        #endregion
+
+        #region Propriedades
+
         /// <summary>
         /// Id do departamento
         /// </summary>
@@ -25,22 +39,16 @@ namespace bahrsDB.Models
         /// </summary>
         public ICollection<Seller> Sellers { get; set; } = new List<Seller>();
 
-        #region Construtores
-
-        public Department() { }
-
-        public Department(int id, string name)
-        {
-            Id = id;
-            Name = name;
-        }
-
         #endregion
+
+        #region Metodos implementados
 
         public void AddSeller(Seller seller)
         {
             Sellers.Add(seller);
         }
+
+        #endregion
 
     }
 }
