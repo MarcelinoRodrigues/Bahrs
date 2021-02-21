@@ -9,10 +9,17 @@ namespace bahrsDB.Data
 {
     public class bahrsDBContext : DbContext
     {
+        #region Construtores
+
         public bahrsDBContext (DbContextOptions<bahrsDBContext> options)
             : base(options)
         {
         }
+
+        #endregion
+
+        #region Propriedades
+
         /// <summary>
         /// Conexão com a entidade Department
         /// </summary>
@@ -25,5 +32,12 @@ namespace bahrsDB.Data
         /// Conexao com a entidade Vehicle
         /// </summary>
         public DbSet<Vehicle> Vehicle { get; set; }
+
+        /// <summary>
+        /// Conexao com a entidade Employee
+        /// </summary>
+        public DbSet<Employee> Employee { get; set; }
+
+        #endregion
     }
 }
