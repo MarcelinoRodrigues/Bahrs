@@ -38,6 +38,11 @@ namespace bahrsDB.Data
         /// </summary>
         public DbSet<Employee> Employee { get; set; }
 
+        /// <summary>
+        /// Conexao com a entidade Vacancy
+        /// </summary>
+        public DbSet<Vacancy> Vacancy { get; set; }
+
         #endregion
     }
 }

@@ -12,17 +12,13 @@ namespace bahrsDB.Models
         /// </summary>
         public int Id { get; set; }
         /// <summary>
-        /// valor do estacionamento
-        /// </summary>
-        public decimal Valor { get; set; }
-        /// <summary>
         /// entrada
         /// </summary>
         public DateTime Entrada { get; set; }
         /// <summary>
         /// vagas do estacionamento
         /// </summary>
-        public string Vaga { get; set; }
+        public Vacancy Vaga { get; set; }
         /// <summary>
         /// vencimento da vaga do estacionamento
         /// </summary>
@@ -38,6 +34,10 @@ namespace bahrsDB.Models
         /// </summary>
         public Employee Atendente { get; set; }
         /// <summary>
+        /// valor do estacionamento
+        /// </summary>
+        public decimal Valor { get; set; }
+        /// <summary>
         /// Id do veiculo
         /// </summary>
         public int VeiculoId { get; set; }
@@ -45,5 +45,9 @@ namespace bahrsDB.Models
         /// Id do veiculo
         /// </summary>
         public int AtendenteId { get; set; }
+        /// <summary>
+        /// Id da vaga
+        /// </summary>
+        public int VagaId { get; set; }
     }
 }
