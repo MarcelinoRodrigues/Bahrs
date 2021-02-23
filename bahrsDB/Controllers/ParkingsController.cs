@@ -50,9 +50,9 @@ namespace bahrsDB.Controllers
         // GET: Parkings/Create
         public IActionResult Create()
         {
-            ViewData["AtendenteId"] = new SelectList(_context.Employee, "Id", "Id");
-            ViewData["VagaId"] = new SelectList(_context.Vacancy, "Id", "Id");
-            ViewData["VeiculoId"] = new SelectList(_context.Vehicle, "Id", "Id");
+            ViewData["AtendenteId"] = new SelectList(_context.Employee, "Id", "Nome");
+            ViewData["VagaId"] = new SelectList(_context.Vacancy, "Id", "Nome");
+            ViewData["VeiculoId"] = new SelectList(_context.Vehicle, "Id", "Nome");
             return View();
         }
 
@@ -69,9 +69,9 @@ namespace bahrsDB.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AtendenteId"] = new SelectList(_context.Employee, "Id", "Id", parking.AtendenteId);
-            ViewData["VagaId"] = new SelectList(_context.Vacancy, "Id", "Id", parking.VagaId);
-            ViewData["VeiculoId"] = new SelectList(_context.Vehicle, "Id", "Id", parking.VeiculoId);
+            ViewData["AtendenteId"] = new SelectList(_context.Employee, "Id", "Nome", parking.AtendenteId);
+            ViewData["VagaId"] = new SelectList(_context.Vacancy, "Id", "Nome", parking.VagaId);
+            ViewData["VeiculoId"] = new SelectList(_context.Vehicle, "Id", "Nome", parking.VeiculoId);
             return View(parking);
         }
 
@@ -88,9 +88,9 @@ namespace bahrsDB.Controllers
             {
                 return NotFound();
             }
-            ViewData["AtendenteId"] = new SelectList(_context.Employee, "Id", "Id", parking.AtendenteId);
-            ViewData["VagaId"] = new SelectList(_context.Vacancy, "Id", "Id", parking.VagaId);
-            ViewData["VeiculoId"] = new SelectList(_context.Vehicle, "Id", "Id", parking.VeiculoId);
+            ViewData["AtendenteId"] = new SelectList(_context.Employee, "Id", "Nome", parking.AtendenteId);
+            ViewData["VagaId"] = new SelectList(_context.Vacancy, "Id", "Nome", parking.VagaId);
+            ViewData["VeiculoId"] = new SelectList(_context.Vehicle, "Id", "Nome", parking.VeiculoId);
             return View(parking);
         }
 
@@ -126,9 +126,9 @@ namespace bahrsDB.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AtendenteId"] = new SelectList(_context.Employee, "Id", "Id", parking.AtendenteId);
-            ViewData["VagaId"] = new SelectList(_context.Vacancy, "Id", "Id", parking.VagaId);
-            ViewData["VeiculoId"] = new SelectList(_context.Vehicle, "Id", "Id", parking.VeiculoId);
+            ViewData["AtendenteId"] = new SelectList(_context.Employee, "Id", "Nome", parking.AtendenteId);
+            ViewData["VagaId"] = new SelectList(_context.Vacancy, "Id", "Nome", parking.VagaId);
+            ViewData["VeiculoId"] = new SelectList(_context.Vehicle, "Id", "Nome", parking.VeiculoId);
             return View(parking);
         }
 

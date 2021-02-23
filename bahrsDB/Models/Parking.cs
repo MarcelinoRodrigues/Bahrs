@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
@@ -48,14 +49,17 @@ namespace bahrsDB.Models
         /// <summary>
         /// Id do veiculo
         /// </summary>
+        [DisplayName("Veiculo")]
         public int VeiculoId { get; set; }
         /// <summary>
         /// Id do veiculo
         /// </summary>
+        [DisplayName("Atendente")]
         public int? AtendenteId { get; set; }
         /// <summary>
         /// Id da vaga
         /// </summary>
+        [DisplayName("Vaga")]
         public int VagaId { get; set; }
     }
 }
