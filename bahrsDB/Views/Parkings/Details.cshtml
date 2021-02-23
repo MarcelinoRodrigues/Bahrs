@@ -1,0 +1,54 @@
+﻿@model bahrsDB.Models.Parking
+
+@{
+    ViewData["Title"] = "Detalhes";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h4>Estacionamento</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Entrada)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Entrada)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Vaga)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Vaga.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Vencimento)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Vencimento)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Veiculo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Veiculo.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Atendente)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Atendente.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Valor)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Valor)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-success">Editar</a>
+    <a asp-action="Index" class="btn btn-default">Voltar</a>
+</div>

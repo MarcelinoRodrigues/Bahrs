@@ -1,0 +1,49 @@
+﻿@model bahrsDB.Models.Parking
+
+@{
+    ViewData["Title"] = "Criar";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h4>Estacionamento</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Entrada" class="control-label"></label>
+                <input asp-for="Entrada" class="form-control" />
+                <span asp-validation-for="Entrada" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Vencimento" class="control-label"></label>
+                <input asp-for="Vencimento" class="form-control" />
+                <span asp-validation-for="Vencimento" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Valor" class="control-label"></label>
+                <input asp-for="Valor" class="form-control" />
+                <span asp-validation-for="Valor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="VeiculoId" class="control-label"></label>
+                <select asp-for="VeiculoId" class ="form-control" asp-items="ViewBag.VeiculoId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="AtendenteId" class="control-label"></label>
+                <select asp-for="AtendenteId" class ="form-control" asp-items="ViewBag.AtendenteId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="VagaId" class="control-label"></label>
+                <select asp-for="VagaId" class ="form-control" asp-items="ViewBag.VagaId"></select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Criar" class="btn btn-success" />
+                <a asp-action="Index" class="btn btn-default">Voltar</a>
+            </div>
+        </form>
+    </div>
+</div>
+

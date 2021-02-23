@@ -43,6 +43,11 @@ namespace bahrsDB.Data
         /// </summary>
         public DbSet<Vacancy> Vacancy { get; set; }
 
+        /// <summary>
+        /// Conexao com a entidade Parking
+        /// </summary>
+        public DbSet<Parking> Parking { get; set; }
+
         #endregion
     }
 }

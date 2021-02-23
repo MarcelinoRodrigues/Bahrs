@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
 
 namespace bahrsDB.Models
 {
+    /// <summary>
+    /// Estacionamento
+    /// </summary>
     public class Parking
     {
         /// <summary>
@@ -14,6 +18,8 @@ namespace bahrsDB.Models
         /// <summary>
         /// entrada
         /// </summary>
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Entrada { get; set; }
         /// <summary>
         /// vagas do estacionamento
@@ -22,6 +28,8 @@ namespace bahrsDB.Models
         /// <summary>
         /// vencimento da vaga do estacionamento
         /// </summary>
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:dd/MM/yyyy}")]
         public DateTime Vencimento { get; set; }
         /// <summary>
         /// veiculo do estacionamento
@@ -44,7 +52,7 @@ namespace bahrsDB.Models
         /// <summary>
         /// Id do veiculo
         /// </summary>
-        public int AtendenteId { get; set; }
+        public int? AtendenteId { get; set; }
         /// <summary>
         /// Id da vaga
         /// </summary>
