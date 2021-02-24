@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 
 namespace bahrsDB.Models
@@ -9,6 +10,7 @@ namespace bahrsDB.Models
     /// <summary>
     /// Vendedor
     /// </summary>
+    [Table("Seller")]
     public class Seller
     {
         #region Construtores

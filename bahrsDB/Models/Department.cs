@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace bahrsDB.Models
 {
+    /// <summary>
+    /// Entidade do Departamento
+    /// </summary>
     [Table("Department")]
     public class Department
     {

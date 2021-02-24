@@ -22,7 +22,7 @@ namespace bahrsDB.Controllers
         // GET: Parkings
         public async Task<IActionResult> Index()
         {
-            var bahrsDBContext = _context.Parking.Include(p => p.Atendente).Include(p => p.Vaga).Include(p => p.Veiculo);
+            var bahrsDBContext = _context.Parking.Include(p => p.Funcionario).Include(p => p.Vaga).Include(p => p.Veiculo);
             return View(await bahrsDBContext.ToListAsync());
         }
 
@@ -35,7 +35,7 @@ namespace bahrsDB.Controllers
             }
 
             var parking = await _context.Parking
-                .Include(p => p.Atendente)
+                .Include(p => p.Funcionario)
                 .Include(p => p.Vaga)
                 .Include(p => p.Veiculo)
                 .FirstOrDefaultAsync(m => m.Id == id);
@@ -50,7 +50,7 @@ namespace bahrsDB.Controllers
         // GET: Parkings/Create
         public IActionResult Create()
         {
-            ViewData["AtendenteId"] = new SelectList(_context.Employee, "Id", "Nome");
+            ViewData["FuncionarioId"] = new SelectList(_context.Employee, "Id", "Nome");
             ViewData["VagaId"] = new SelectList(_context.Vacancy, "Id", "Nome");
             ViewData["VeiculoId"] = new SelectList(_context.Vehicle, "Id", "Nome");
             return View();
@@ -58,7 +58,7 @@ namespace bahrsDB.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,Entrada,Vencimento,Valor,VeiculoId,AtendenteId,VagaId")] Parking parking)
+        public async Task<IActionResult> Create([Bind("Id,Entrada,Vencimento,Valor,VeiculoId,FuncionarioId,VagaId")] Parking parking)
         {
             if (ModelState.IsValid)
             {
@@ -66,7 +66,7 @@ namespace bahrsDB.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AtendenteId"] = new SelectList(_context.Employee, "Id", "Nome", parking.AtendenteId);
+            ViewData["FuncionarioId"] = new SelectList(_context.Employee, "Id", "Nome", parking.FuncionarioId);
             ViewData["VagaId"] = new SelectList(_context.Vacancy, "Id", "Nome", parking.VagaId);
             ViewData["VeiculoId"] = new SelectList(_context.Vehicle, "Id", "Nome", parking.VeiculoId);
             return View(parking);
@@ -85,7 +85,7 @@ namespace bahrsDB.Controllers
             {
                 return NotFound();
             }
-            ViewData["AtendenteId"] = new SelectList(_context.Employee, "Id", "Nome", parking.AtendenteId);
+            ViewData["FuncionarioId"] = new SelectList(_context.Employee, "Id", "Nome", parking.FuncionarioId);
             ViewData["VagaId"] = new SelectList(_context.Vacancy, "Id", "Nome", parking.VagaId);
             ViewData["VeiculoId"] = new SelectList(_context.Vehicle, "Id", "Nome", parking.VeiculoId);
             return View(parking);
@@ -94,7 +94,7 @@ namespace bahrsDB.Controllers
         // POST: Parkings/Edit/5
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,Entrada,Vencimento,Valor,VeiculoId,AtendenteId,VagaId")] Parking parking)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,Entrada,Vencimento,Valor,VeiculoId,FuncionarioId,VagaId")] Parking parking)
         {
             if (id != parking.Id)
             {
@@ -121,7 +121,7 @@ namespace bahrsDB.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["AtendenteId"] = new SelectList(_context.Employee, "Id", "Nome", parking.AtendenteId);
+            ViewData["FuncionarioId"] = new SelectList(_context.Employee, "Id", "Nome", parking.FuncionarioId);
             ViewData["VagaId"] = new SelectList(_context.Vacancy, "Id", "Nome", parking.VagaId);
             ViewData["VeiculoId"] = new SelectList(_context.Vehicle, "Id", "Nome", parking.VeiculoId);
             return View(parking);
@@ -136,7 +136,7 @@ namespace bahrsDB.Controllers
             }
 
             var parking = await _context.Parking
-                .Include(p => p.Atendente)
+                .Include(p => p.Funcionario)
                 .Include(p => p.Vaga)
                 .Include(p => p.Veiculo)
                 .FirstOrDefaultAsync(m => m.Id == id);
