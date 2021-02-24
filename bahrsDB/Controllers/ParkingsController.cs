@@ -56,9 +56,6 @@ namespace bahrsDB.Controllers
             return View();
         }
 
-        // POST: Parkings/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Entrada,Vencimento,Valor,VeiculoId,AtendenteId,VagaId")] Parking parking)
@@ -95,8 +92,6 @@ namespace bahrsDB.Controllers
         }
 
         // POST: Parkings/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Entrada,Vencimento,Valor,VeiculoId,AtendenteId,VagaId")] Parking parking)
@@ -132,7 +127,7 @@ namespace bahrsDB.Controllers
             return View(parking);
         }
 
-        // GET: Parkings/Delete/5
+        // GET: Parkings/Delete/ID
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -153,7 +148,7 @@ namespace bahrsDB.Controllers
             return View(parking);
         }
 
-        // POST: Parkings/Delete/5
+        // POST: Parkings/Delete/ID
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
