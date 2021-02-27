@@ -75,14 +75,14 @@
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="mynav_navbar">
-                
+
                 <div class="mynav_dropdown">
                     <button class="mynav_dropbtn">
                         <a asp-area="" asp-controller="Home" asp-action="Index">Home</a>
                         <i class="fa fa-caret-down"></i>
                     </button>
                     <div class="mynav_dropdown-content">
-                        
+
                     </div>
                 </div>
                 <div class="mynav_dropdown">
@@ -103,6 +103,15 @@
                         <a asp-area="" asp-controller="Vehicles" asp-action="Index">Veiculos</a>
                         <a asp-area="" asp-controller="Employees" asp-action="Index">Funcionário</a>
                         <a asp-area="" asp-controller="Vacancies" asp-action="Index">Vagas de Estacionamento</a>
+                    </div>
+                </div>
+                <div class="mynav_dropdown">
+                    <button class="mynav_dropbtn">
+                        <a asp-area="" asp-controller="Parkings" asp-action="Index">Estoque</a>
+                        <i class="fa fa-caret-down"></i>
+                    </button>
+                    <div class="mynav_dropdown-content">
+                        <a asp-area="" asp-controller="Products" asp-action="Index">Produtos</a>
                     </div>
                 </div>
             </div>
