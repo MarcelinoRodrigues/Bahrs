@@ -49,7 +49,7 @@ namespace bahrsDB.Data
         public DbSet<Parking> Parking { get; set; }
 
         /// <summary>
-        /// Conexao com a entidade Parking
+        /// Conexao com a entidade Product
         /// </summary>
         public DbSet<Product> Product { get; set; }
 
