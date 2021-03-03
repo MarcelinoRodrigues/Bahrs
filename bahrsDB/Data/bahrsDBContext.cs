@@ -54,9 +54,9 @@ namespace bahrsDB.Data
         public DbSet<Product> Product { get; set; }
 
         /// <summary>
-        /// Conexao com a entidade Product
+        /// Conexao com a entidade Stock
         /// </summary>
-        public DbSet<bahrsDB.Models.Stock> Stock { get; set; }
+        public DbSet<Stock> Stock { get; set; }
 
         #endregion
     }

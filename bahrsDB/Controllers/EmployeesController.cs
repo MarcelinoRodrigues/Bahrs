@@ -49,9 +49,6 @@ namespace bahrsDB.Controllers
             return View();
         }
 
-        // POST: Employees/Create
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Nome")] Employee employee)
@@ -81,9 +78,6 @@ namespace bahrsDB.Controllers
             return View(employee);
         }
 
-        // POST: Employees/Edit/5
-        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
-        // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("Id,Nome")] Employee employee)

@@ -117,10 +117,6 @@ namespace bahrsDB.Controllers
             {
                 return RedirectToAction(nameof(Error), new { message = e.Message });
             }
-            //catch (DbConcurrencyException e)
-            //{
-            //    return RedirectToAction(nameof(Error), new { message = e.Message });
-            //}
         }
         public IActionResult Error(string message)
         {
