@@ -53,6 +53,11 @@ namespace bahrsDB.Data
         /// </summary>
         public DbSet<Product> Product { get; set; }
 
+        /// <summary>
+        /// Conexao com a entidade Product
+        /// </summary>
+        public DbSet<bahrsDB.Models.Stock> Stock { get; set; }
+
         #endregion
     }
 }

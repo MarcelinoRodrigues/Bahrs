@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 namespace bahrsDB.Services.Enum
 {
     [Serializable]
-    public enum Status : byte
+    public enum Status : int
     {
         Ativo = 0,
         Desativado = 1

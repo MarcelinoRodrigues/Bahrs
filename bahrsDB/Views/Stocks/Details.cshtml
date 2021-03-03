@@ -1,0 +1,37 @@
+﻿@model bahrsDB.Models.Stock
+
+@{
+    ViewData["Title"] = "Detalhes";
+    ViewData["Base"] = "Estoque";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<div>
+    <h4>@ViewData["Base"]</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Nome)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Products)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Products.Nome)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Status)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-success">Editar</a>
+    <a asp-action="Index" class="btn btn-default">Voltar</a>
+</div>
