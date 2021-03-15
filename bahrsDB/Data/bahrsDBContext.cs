@@ -58,6 +58,11 @@ namespace bahrsDB.Data
         /// </summary>
         public DbSet<Stock> Stock { get; set; }
 
+        /// <summary>
+        /// Conexao com a entidade User
+        /// </summary>
+        public DbSet<User> User { get; set; }
+
         #endregion
     }
 }
