@@ -63,6 +63,11 @@ namespace bahrsDB.Data
         /// </summary>
         public DbSet<User> User { get; set; }
 
+        /// <summary>
+        /// Conexao com a entidade License
+        /// </summary>
+        public DbSet<bahrsDB.Models.License> License { get; set; }
+
         #endregion
     }
 }
