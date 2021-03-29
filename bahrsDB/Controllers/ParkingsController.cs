@@ -128,7 +128,7 @@ namespace bahrsDB.Controllers
         }
 
         // GET: Parkings/Delete/ID
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? id, int? verificarSeEstaAssociado = null)
         {
             if (id == null)
             {
@@ -145,6 +145,11 @@ namespace bahrsDB.Controllers
                 return NotFound();
             }
 
+            if (verificarSeEstaAssociado.HasValue)
+            {
+                return View();
+            }
+
             return View(parking);
         }
 
@@ -156,6 +161,7 @@ namespace bahrsDB.Controllers
             var parking = await _context.Parking.FindAsync(id);
             _context.Parking.Remove(parking);
             await _context.SaveChangesAsync();
+
             return RedirectToAction(nameof(Index));
         }
 
