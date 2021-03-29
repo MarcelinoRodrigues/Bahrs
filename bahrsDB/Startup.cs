@@ -77,7 +77,7 @@ namespace bahrsDB
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Parkings}/{action=Index}/{id?}");
+                    template: "{controller=Users}/{action=Index}/{id?}");
             });
         }
     }

@@ -1,68 +1,29 @@
 ﻿@model IEnumerable<bahrsDB.Models.User>
 
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Entrar";
 }
-<div style="">
-    <form class="box" style="width: 400px;
-		padding: 40px;
-		margin: 10% auto;
-		background-color: #191919;
-		text-align: center;
-		border-radius: 10%;">
-        <h2 style="color: white;
-		  font-weight: 400;
-		  font-style: italic;">
-            Login
-        </h2>
-        <input class="text" type="text" placeholder="Nome"
-               style="        border: 0;
-        background: none;
-        display: block;
-        margin: 20px auto;
-        text-align: center;
-        border: 2px solid #A9A9A9;
-        padding: 14px 10px;
-        width: 200px;
-        outline: none;
-        color: white;
-        border-radius: 24px;
-        transition: 0.25s;" />
-        <input class="pass" type="password" placeholder="Senha"
-               style="        border: 0;
-        background: none;
-        display: block;
-        margin: 20px auto;
-        text-align: center;
-        border: 2px solid #A9A9A9;
-        padding: 14px 10px;
-        width: 200px;
-        outline: none;
-        color: white;
-        border-radius: 24px;
-        transition: 0.25s;" />
-        <input type="submit" value="Login"
-               style="        border: 0;
-        background: none;
-        display: block;
-        margin: 20px auto;
-        text-align: center;
-        border: 2px solid #A9A9A9;
-        padding: 14px 40px;
-        outline: none;
-        color: white;
-        border-radius: 24px;
-        transition: 0.25s;
-        cursor: pointer;" />
-        <p>
-            <a asp-action="Create"
-               style="color: white;
-			text-decoration: none;
-			font-style: italic;">
-                Criar Novo Usuário
-            </a>
-        </p>
-    </form>
 
+<h2>@ViewData["Title"]</h2>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label class="control-label">Nome</label>
+                <input class="form-control" />
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Senha</label>
+                <input type="password" class="form-control" />
+                <span class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Entrar" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
 </div>
-
