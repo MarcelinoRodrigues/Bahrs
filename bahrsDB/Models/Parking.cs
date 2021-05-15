@@ -29,7 +29,6 @@ namespace bahrsDB.Models
         /// <summary>
         /// vagas do estacionamento
         /// </summary>
-        [Required(ErrorMessage = "Informe o Campo Valor")]
         public Vacancy Vaga { get; set; }
         /// <summary>
         /// vencimento da vaga do estacionamento
@@ -42,19 +41,17 @@ namespace bahrsDB.Models
         /// veiculo do estacionamento
         /// Um estacionamento pode ter um veiculo
         /// </summary>
-        [Required(ErrorMessage = "informe o Veículo")]
         public Vehicle Veiculo { get; set; }
         /// <summary>
         /// atendente do estacionamento
         /// um estacionamento pode ter um atendente
         /// </summary>
         [DisplayName("Funcionário")]
-        [Required(ErrorMessage = "informe o Atendente")]
         public Employee Funcionario { get; set; }
         /// <summary>
         /// valor do estacionamento
         /// </summary>
-        [Required(ErrorMessage = " informe o Valor")]
+        [Required]
         public decimal Valor { get; set; }
         /// <summary>
         /// Id do veiculo

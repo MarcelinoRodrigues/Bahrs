@@ -12,6 +12,5 @@ namespace bahrsDB.Models
         public int Id { get; set; }
         public string Nome { get; set; }
         public string Senha { get; set; }
-        // pequeno teste pro git
     }
 }
