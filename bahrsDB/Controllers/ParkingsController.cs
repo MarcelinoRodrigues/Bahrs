@@ -66,6 +66,7 @@ namespace bahrsDB.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
             ViewData["FuncionarioId"] = new SelectList(_context.Employee, "Id", "Nome", parking.FuncionarioId);
             ViewData["VagaId"] = new SelectList(_context.Vacancy, "Id", "Nome", parking.VagaId);
             ViewData["VeiculoId"] = new SelectList(_context.Vehicle, "Id", "Nome", parking.VeiculoId);
