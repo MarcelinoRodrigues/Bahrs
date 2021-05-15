@@ -21,14 +21,6 @@ namespace bahrsDB.Data
         #region Propriedades
 
         /// <summary>
-        /// Conexão com a entidade Department
-        /// </summary>
-        public DbSet<Department> Department { get; set; }
-        /// <summary>
-        /// Conexao com a entidade Seller
-        /// </summary>
-        public DbSet<Seller> Seller { get; set; }
-        /// <summary>
         /// Conexao com a entidade Vehicle
         /// </summary>
         public DbSet<Vehicle> Vehicle { get; set; }
@@ -49,16 +41,6 @@ namespace bahrsDB.Data
         public DbSet<Parking> Parking { get; set; }
 
         /// <summary>
-        /// Conexao com a entidade Product
-        /// </summary>
-        public DbSet<Product> Product { get; set; }
-
-        /// <summary>
-        /// Conexao com a entidade Stock
-        /// </summary>
-        public DbSet<Stock> Stock { get; set; }
-
-        /// <summary>
         /// Conexao com a entidade User
         /// </summary>
         public DbSet<User> User { get; set; }
@@ -66,7 +48,7 @@ namespace bahrsDB.Data
         /// <summary>
         /// Conexao com a entidade License
         /// </summary>
-        public DbSet<bahrsDB.Models.License> License { get; set; }
+        public DbSet<License> License { get; set; }
 
         #endregion
     }
