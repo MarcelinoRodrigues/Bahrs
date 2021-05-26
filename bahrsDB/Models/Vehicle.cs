@@ -1,4 +1,5 @@
-﻿using System;
+﻿using bahrsDB.Services.Enum;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -13,6 +14,8 @@ namespace bahrsDB.Models
     [Table("Vehicle")]
     public class Vehicle
     {
+        #region Propriedades
+
         /// <summary>
         /// id do veiculo
         /// </summary>
@@ -28,5 +31,33 @@ namespace bahrsDB.Models
         /// </summary>
         [Required(ErrorMessage = "Informe a Placa")]
         public string Placa { get; set; }
+
+        /// <summary>
+        /// Status do veiculo
+        /// </summary>
+        public Status Status { get; set; }
+
+        #endregion
+
+        #region Construtores
+        public Vehicle()
+        {
+
+        }
+
+        public Vehicle (int id, String nome, String placa ,Status status)
+        {
+            this.Id = Id;
+            this.Nome = nome;
+            this.Placa = placa;
+            this.Status =status;
+        }
+
+        public void desativar()
+        {
+            this.Status = Status.Desativado;
+        }
+
+        #endregion
     }
 }

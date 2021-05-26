@@ -14,6 +14,8 @@ namespace bahrsDB.Models
     [Table("Parking")]
     public class Parking
     {
+        #region Propriedades
+
         /// <summary>
         /// id do estacionamento
         /// </summary>
@@ -71,5 +73,8 @@ namespace bahrsDB.Models
         [DisplayName("Vaga")]
         [Required(ErrorMessage = "Informe a Vaga")]
         public int VagaId { get; set; }
+
+        #endregion
+
     }
 }

@@ -1,0 +1,51 @@
+﻿USE [SystemMRN]
+GO
+
+/****** Object:  Table [dbo].[Vehicle]    Script Date: 25/05/2021 20:59:01 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Vehicle](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Nome] [varchar](50) NOT NULL,
+	[Placa] [varchar](50) NOT NULL,
+	[Status] [int] NOT NULL,
+ CONSTRAINT [PK_Vehicle] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Vehicle] ADD  DEFAULT ((0)) FOR [Status]
+GO
+
+
+USE [SystemMRN]
+GO
+
+/****** Object:  Table [dbo].[Vacancy]    Script Date: 25/05/2021 20:59:33 ******/
+SET ANSI_NULLS ON
+GO
+
+SET QUOTED_IDENTIFIER ON
+GO
+
+CREATE TABLE [dbo].[Vacancy](
+	[Id] [int] IDENTITY(1,1) NOT NULL,
+	[Nome] [varchar](50) NOT NULL,
+	[Status] [int] NOT NULL,
+ CONSTRAINT [PK_Vacancy] PRIMARY KEY CLUSTERED 
+(
+	[Id] ASC
+)WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
+) ON [PRIMARY]
+GO
+
+ALTER TABLE [dbo].[Vacancy] ADD  DEFAULT ((0)) FOR [Status]
+GO
+
+

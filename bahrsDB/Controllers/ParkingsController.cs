@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using bahrsDB.Data;
 using bahrsDB.Models;
+using bahrsDB.Services.Enum;
+using Sitecore.FakeDb;
 
 namespace bahrsDB.Controllers
 {
@@ -50,9 +52,12 @@ namespace bahrsDB.Controllers
         // GET: Parkings/Create
         public IActionResult Create()
         {
+            // seleção de todos os funcionarios
             ViewData["FuncionarioId"] = new SelectList(_context.Employee, "Id", "Nome");
-            ViewData["VagaId"] = new SelectList(_context.Vacancy, "Id", "Nome");
-            ViewData["VeiculoId"] = new SelectList(_context.Vehicle, "Id", "Nome");
+            // seleção das vagas onde o status esteja ativo
+            ViewData["VagaId"] = new SelectList(_context.Vacancy.Where(x => x.Status == Status.Ativo), "Id", "Nome");
+            // seleção dos veiculos onde o status esteja ativo
+            ViewData["VeiculoId"] = new SelectList(_context.Vehicle.Where(x => x.Status == Status.Ativo), "Id", "Nome");
             return View();
         }
 
@@ -66,6 +71,9 @@ namespace bahrsDB.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+
+            var veiculo = await _context.Vehicle.FindAsync(parking);
+            veiculo.Status = Status.Desativado;
 
             ViewData["FuncionarioId"] = new SelectList(_context.Employee, "Id", "Nome", parking.FuncionarioId);
             ViewData["VagaId"] = new SelectList(_context.Vacancy, "Id", "Nome", parking.VagaId);
@@ -160,6 +168,8 @@ namespace bahrsDB.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var parking = await _context.Parking.FindAsync(id);
+            var veiculo = await _context.Vehicle.FindAsync(id);
+            veiculo.Status = Status.Ativo;
             _context.Parking.Remove(parking);
             await _context.SaveChangesAsync();
 
