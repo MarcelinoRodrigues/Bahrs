@@ -72,8 +72,13 @@ namespace bahrsDB.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
-            var veiculo = await _context.Vehicle.FindAsync(parking);
-            veiculo.Status = Status.Desativado;
+            var estacionamento = (from estacionamentos in _context.Parking
+                                  join vagas in _context.Vacancy on estacionamentos.VagaId equals vagas.Id
+                                  where vagas.Id == estacionamentos.VagaId
+                                  join veiculos in _context.Vehicle on estacionamentos.VeiculoId equals veiculos.Id
+                                  where veiculos.Id == estacionamentos.VeiculoId
+                                  select estacionamentos
+                                  );
 
             ViewData["FuncionarioId"] = new SelectList(_context.Employee, "Id", "Nome", parking.FuncionarioId);
             ViewData["VagaId"] = new SelectList(_context.Vacancy, "Id", "Nome", parking.VagaId);
@@ -168,8 +173,6 @@ namespace bahrsDB.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var parking = await _context.Parking.FindAsync(id);
-            var veiculo = await _context.Vehicle.FindAsync(id);
-            veiculo.Status = Status.Ativo;
             _context.Parking.Remove(parking);
             await _context.SaveChangesAsync();
 
