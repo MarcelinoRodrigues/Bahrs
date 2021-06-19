@@ -43,6 +43,7 @@ namespace bahrsDB.Models
         /// veiculo do estacionamento
         /// Um estacionamento pode ter um veiculo
         /// </summary>
+        [DisplayName("Veiculo | Placa")]
         public Vehicle Veiculo { get; set; }
         /// <summary>
         /// atendente do estacionamento

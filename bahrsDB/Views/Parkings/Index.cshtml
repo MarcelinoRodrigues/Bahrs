@@ -52,7 +52,8 @@
                 @Html.DisplayFor(modelItem => item.Vencimento)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Veiculo.Nome)
+                @Html.DisplayFor(modelItem => item.Veiculo.Nome) |
+                @Html.DisplayFor(modelItem => item.Veiculo.Placa)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Funcionario.Nome)
