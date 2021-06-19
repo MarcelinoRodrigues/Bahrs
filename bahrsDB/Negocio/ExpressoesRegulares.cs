@@ -5,6 +5,9 @@ using System.Threading.Tasks;
 
 namespace bahrsDB.Negocio
 {
+    /// <summary>
+    /// Regex utilizado para validações de interface
+    /// </summary>
     public static class ExpressoesRegulares
     {
         /// <summary>
@@ -51,5 +54,11 @@ namespace bahrsDB.Negocio
         /// Validador Numero Real
         /// </summary>
         public const string numeroReal = @"^\d+?(.|,\d+)$";
+
+        /// <summary>
+        /// Valida Vagas de estacionamento
+        /// Duas letras ou uma Letra e um numero
+        /// </summary>
+        public const string vagasValidas = @"^[A-Z]{2}|[A-Z]+[0-9]$";
     }
 }
