@@ -137,6 +137,15 @@ namespace bahrsDB.Controllers
         {
             var vehicle = await _context.Vehicle.FindAsync(id);
             _context.Vehicle.Remove(vehicle);
+
+            //Verifica se existe a vaga informada na aplicação de estacionamento
+            var verificaSeEstarAssociado = _context.Parking.Any(v => v.VeiculoId == id);
+            //se estiver associada retorna a pagina
+            if (verificaSeEstarAssociado)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }

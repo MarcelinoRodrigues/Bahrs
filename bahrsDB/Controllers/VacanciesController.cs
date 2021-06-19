@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using bahrsDB.Data;
 using bahrsDB.Models;
+using Microsoft.VisualStudio.Web.CodeGeneration.Contracts.Messaging;
 
 namespace bahrsDB.Controllers
 {
@@ -137,6 +138,15 @@ namespace bahrsDB.Controllers
         {
             var vacancy = await _context.Vacancy.FindAsync(id);
             _context.Vacancy.Remove(vacancy);
+
+            //Verifica se existe a vaga informada na aplicação de estacionamento
+            var verificaSeEstarAssociado = _context.Parking.Any(v => v.VagaId == id);
+            //se estiver associada retorna a pagina
+            if (verificaSeEstarAssociado)
+            {
+                return RedirectToAction(nameof(Index));
+            }
+
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
