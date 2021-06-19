@@ -1,4 +1,5 @@
-﻿using bahrsDB.Services.Enum;
+﻿using bahrsDB.Negocio;
+using bahrsDB.Services.Enum;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -29,6 +30,7 @@ namespace bahrsDB.Models
         /// <summary>
         /// placa do veiculo
         /// </summary>
+        [RegularExpression(ExpressoesRegulares.placasValidas,ErrorMessage = "Informe Todas as Letra em maiusculo e tudo junto,7 Caracteres")]
         [Required(ErrorMessage = "Informe a Placa")]
         public string Placa { get; set; }
 

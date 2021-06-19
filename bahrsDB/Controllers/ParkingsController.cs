@@ -67,17 +67,18 @@ namespace bahrsDB.Controllers
         {
             if (ModelState.IsValid)
             {
+                var vaga = await _context.Vacancy.FindAsync(parking.VagaId);
+                _context.Vacancy.Update(vaga);
+
                 _context.Add(parking);
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
 
-            var veiculo = await _context.Vehicle.FindAsync(parking);
-            veiculo.Status = Status.Desativado;
-
             ViewData["FuncionarioId"] = new SelectList(_context.Employee, "Id", "Nome", parking.FuncionarioId);
             ViewData["VagaId"] = new SelectList(_context.Vacancy, "Id", "Nome", parking.VagaId);
-            ViewData["VeiculoId"] = new SelectList(_context.Vehicle, "Id", "Nome", parking.VeiculoId);
+            ViewData["VeiculoId"] = new SelectList(_context.Vehicle, "Id", "Status", parking.VeiculoId);
+
             return View(parking);
         }
 
@@ -137,7 +138,7 @@ namespace bahrsDB.Controllers
         }
 
         // GET: Parkings/Delete/ID
-        public async Task<IActionResult> Delete(int? id, int? verificarSeEstaAssociado = null)
+        public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
             {
@@ -154,11 +155,6 @@ namespace bahrsDB.Controllers
                 return NotFound();
             }
 
-            if (verificarSeEstaAssociado.HasValue)
-            {
-                return View();
-            }
-
             return View(parking);
         }
 
@@ -168,8 +164,6 @@ namespace bahrsDB.Controllers
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
             var parking = await _context.Parking.FindAsync(id);
-            var veiculo = await _context.Vehicle.FindAsync(id);
-            veiculo.Status = Status.Ativo;
             _context.Parking.Remove(parking);
             await _context.SaveChangesAsync();
 
