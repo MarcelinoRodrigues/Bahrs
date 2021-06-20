@@ -72,6 +72,7 @@ namespace bahrsDB.Controllers
 
                 _context.Add(parking);
                 await _context.SaveChangesAsync();
+                TempData["Mensagem"] = "Operação realizada com sucesso.";
                 return RedirectToAction(nameof(Index));
             }
 
@@ -129,6 +130,7 @@ namespace bahrsDB.Controllers
                         throw;
                     }
                 }
+                TempData["Mensagem"] = "Operação realizada com sucesso.";
                 return RedirectToAction(nameof(Index));
             }
             ViewData["FuncionarioId"] = new SelectList(_context.Employee, "Id", "Nome", parking.FuncionarioId);
@@ -166,7 +168,7 @@ namespace bahrsDB.Controllers
             var parking = await _context.Parking.FindAsync(id);
             _context.Parking.Remove(parking);
             await _context.SaveChangesAsync();
-
+            TempData["Mensagem"] = "Operação realizada com sucesso.";
             return RedirectToAction(nameof(Index));
         }
 
