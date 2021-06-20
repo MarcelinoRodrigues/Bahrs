@@ -12,7 +12,21 @@ namespace bahrsDB.Controllers
         public VehiclesController(bahrsDBContext context): base(context)
         {           
         }
-       
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public override async Task<IActionResult> Create([Bind("Id,Nome,Placa")] Vehicle vehicle)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(vehicle);
+                await _context.SaveChangesAsync();
+                TempData["Mensagem"] = "Operação realizada com sucesso.";
+                return RedirectToAction(nameof(Index));
+            }
+            return View(vehicle);
+        }
+
         // Recebe o delete via javascript
         [HttpGet]
         public override async Task<IActionResult> Delete(string id)

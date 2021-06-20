@@ -76,7 +76,7 @@ GO
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[User](
+CREATE TABLE [dbo].[Users](
 	[Id] [int] IDENTITY(1,1) NOT NULL,
 	[Nome] [varchar](50) NOT NULL,
 	[Senha] [varchar](50) NOT NULL,

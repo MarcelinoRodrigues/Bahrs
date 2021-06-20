@@ -14,6 +14,20 @@ namespace bahrsDB.Controllers
         {
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public override async Task<IActionResult> Create([Bind("Id,Nome")] Vacancy vacancy)
+        {
+            if (ModelState.IsValid)
+            {
+                _context.Add(vacancy);
+                await _context.SaveChangesAsync();
+                TempData["Mensagem"] = "Operação realizada com sucesso.";
+                return RedirectToAction(nameof(Index));
+            }
+            return View(vacancy);
+        }
+
         // Recebe o delete via javascript
         public override async Task<IActionResult> Delete(string id)
         {
