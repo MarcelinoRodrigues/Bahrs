@@ -14,34 +14,15 @@ namespace bahrsDB.Controllers
         {           
         }
        
-        // GET: Vehicles/Delete/5
+        // Recebe o delete via javascript
+        [HttpGet]
         public override async Task<IActionResult> Delete(string id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var vehicle = await _context.Vehicle
-                .FirstOrDefaultAsync(m => m.Id == int.Parse(id));
-            if (vehicle == null)
-            {
-                return NotFound();
-            }
-
-            return View(vehicle);
-        }
-
-        // POST: Vehicles/Delete/5
-        [HttpPost, ActionName("Delete")]
-        [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
-        {
-            var vehicle = await _context.Vehicle.FindAsync(id);
+            var vehicle = await _context.Vehicle.FindAsync(int.Parse(id));
             _context.Vehicle.Remove(vehicle);
 
             //Verifica se existe a vaga informada na aplicação de estacionamento
-            var verificaSeEstarAssociado = _context.Parking.Any(v => v.VeiculoId == id);
+            var verificaSeEstarAssociado = _context.Parking.Any(v => v.VeiculoId == int.Parse(id));
             //se estiver associada retorna a pagina
             if (verificaSeEstarAssociado)
             {
@@ -50,6 +31,7 @@ namespace bahrsDB.Controllers
                 return RedirectToAction(nameof(Index));
             }
 
+            TempData["Mensagem"] = "Operação realizada com sucesso.";
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
