@@ -1,10 +1,9 @@
-﻿using System.Linq;
-using System.Threading.Tasks;
-using bahrsDB.Data;
+﻿using bahrsDB.Data;
 using bahrsDB.Data.Base;
 using bahrsDB.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace bahrsDB.Controllers
 {
@@ -21,7 +20,7 @@ namespace bahrsDB.Controllers
             var vehicle = await _context.Vehicle.FindAsync(int.Parse(id));
             _context.Vehicle.Remove(vehicle);
 
-            //Verifica se existe a vaga informada na aplicação de estacionamento
+            //Verifica se existe um veiculo informado na aplicação de estacionamento
             var verificaSeEstarAssociado = _context.Parking.Any(v => v.VeiculoId == int.Parse(id));
             //se estiver associada retorna a pagina
             if (verificaSeEstarAssociado)

@@ -47,7 +47,7 @@ namespace bahrsDB.Data.Base
         {
             return View();
         }
-
+        //Post
         public virtual async Task<IActionResult> Create(T objeto)
         {
             if (objeto == null)
