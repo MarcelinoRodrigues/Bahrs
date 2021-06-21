@@ -69,23 +69,24 @@ GO
 
 GO
 
-/****** Object:  Table [dbo].[User]    Script Date: 19/06/2021 11:12:11 ******/
+/****** Object:  Table [dbo].[Account]    Script Date: 21/06/2021 11:45:20 ******/
 SET ANSI_NULLS ON
 GO
 
 SET QUOTED_IDENTIFIER ON
 GO
 
-CREATE TABLE [dbo].[Users](
-	[Id] [int] IDENTITY(1,1) NOT NULL,
+CREATE TABLE [dbo].[Account](
 	[Nome] [varchar](50) NOT NULL,
 	[Senha] [varchar](50) NOT NULL,
- CONSTRAINT [PK_User] PRIMARY KEY CLUSTERED 
+ CONSTRAINT [PK_Account] PRIMARY KEY CLUSTERED 
 (
-	[Id] ASC
+	[Nome] ASC
 )WITH (PAD_INDEX = OFF, STATISTICS_NORECOMPUTE = OFF, IGNORE_DUP_KEY = OFF, ALLOW_ROW_LOCKS = ON, ALLOW_PAGE_LOCKS = ON, OPTIMIZE_FOR_SEQUENTIAL_KEY = OFF) ON [PRIMARY]
 ) ON [PRIMARY]
 GO
+
+
 
 
 GO
