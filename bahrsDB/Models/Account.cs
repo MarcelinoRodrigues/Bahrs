@@ -7,11 +7,9 @@ using System.Threading.Tasks;
 
 namespace bahrsDB.Models
 {
-    [Table("Users")]
-    public class User
+    [Table("Account")]
+    public class Account
     {
-        [Key]
-        public int Id { get; set; }
         public string Nome { get; set; }
         public string Senha { get; set; }
     }

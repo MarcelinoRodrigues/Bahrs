@@ -43,12 +43,7 @@ namespace bahrsDB.Data
         /// <summary>
         /// Conexao com a entidade User
         /// </summary>
-        public DbSet<User> User { get; set; }
-
-        /// <summary>
-        /// Conexao com a entidade License
-        /// </summary>
-        public DbSet<License> License { get; set; }
+        public DbSet<Account> User { get; set; }
 
         #endregion
     }
