@@ -10,6 +10,7 @@ namespace bahrsDB.Models
     [Table("Account")]
     public class Account
     {
+        [Key]
         public string Nome { get; set; }
         public string Senha { get; set; }
     }

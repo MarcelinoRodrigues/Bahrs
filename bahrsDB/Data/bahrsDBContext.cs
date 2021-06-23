@@ -41,9 +41,9 @@ namespace bahrsDB.Data
         public DbSet<Parking> Parking { get; set; }
 
         /// <summary>
-        /// Conexao com a entidade User
+        /// Conexao com a entidade Account
         /// </summary>
-        public DbSet<Account> User { get; set; }
+        public DbSet<Account> Account { get; set; }
 
         #endregion
     }
