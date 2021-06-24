@@ -40,26 +40,5 @@ namespace bahrsDB.Models
         public Status Status { get; set; }
 
         #endregion
-
-        #region Construtores
-        public Vehicle()
-        {
-
-        }
-
-        public Vehicle (int id, String nome, String placa ,Status status)
-        {
-            this.Id = Id;
-            this.Nome = nome;
-            this.Placa = placa;
-            this.Status =status;
-        }
-
-        public void desativar()
-        {
-            this.Status = Status.Desativado;
-        }
-
-        #endregion
     }
 }
