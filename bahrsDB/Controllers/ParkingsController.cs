@@ -67,8 +67,16 @@ namespace bahrsDB.Controllers
         {
             if (ModelState.IsValid)
             {
+                //Pegando A VagaID
                 var vaga = await _context.Vacancy.FindAsync(parking.VagaId);
                 _context.Vacancy.Update(vaga);
+
+                //a Entrada do veiculo no estacionamento não pode ter um horário maior que a saída.
+                if (parking.Entrada > parking.Vencimento)
+                {
+                    TempData["Mensagem"] = "O vencimento não pode ser menor que a entrada";
+                    return RedirectToAction(nameof(Index));
+                }
 
                 _context.Add(parking);
                 await _context.SaveChangesAsync();
@@ -114,6 +122,12 @@ namespace bahrsDB.Controllers
 
             if (ModelState.IsValid)
             {
+                //a Entrada do veiculo no estacionamento não pode ter um horário maior que a saída.
+                if (parking.Entrada > parking.Vencimento)
+                {
+                    TempData["Mensagem"] = "O vencimento não pode ser menor que a entrada";
+                    return RedirectToAction(nameof(Index));
+                }
                 try
                 {
                     _context.Update(parking);
