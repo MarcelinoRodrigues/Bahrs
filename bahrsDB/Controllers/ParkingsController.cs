@@ -69,7 +69,13 @@ namespace bahrsDB.Controllers
             {
                 //Pegando A VagaID
                 var vaga = await _context.Vacancy.FindAsync(parking.VagaId);
-                _context.Vacancy.Update(vaga);
+
+                //Ao ser incluido um estacionamento a vaga altera seu Status para Desativado
+                if( _context.Vacancy.Any(e => e.Id == parking.VagaId))
+                {
+                    vaga.Status = Status.Desativado;
+                    _context.Vacancy.Update(vaga);
+                }
 
                 //a Entrada do veiculo no estacionamento não pode ter um horário maior que a saída.
                 if (parking.Entrada > parking.Vencimento)
@@ -181,6 +187,17 @@ namespace bahrsDB.Controllers
         {
             var parking = await _context.Parking.FindAsync(id);
             _context.Parking.Remove(parking);
+
+            //Pegando A VagaID
+            var vaga = await _context.Vacancy.FindAsync(parking.VagaId);
+
+            //Ao ser excluido um estacionamento a vaga altera seu Status para Ativo
+            if (_context.Vacancy.Any(v => v.Id == parking.VagaId))
+            {
+                vaga.Status = Status.Ativo;
+                _context.Vacancy.Update(vaga);
+            }
+
             await _context.SaveChangesAsync();
             TempData["Mensagem"] = "Operação realizada com sucesso.";
             return RedirectToAction(nameof(Index));
