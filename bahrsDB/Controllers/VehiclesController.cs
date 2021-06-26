@@ -39,7 +39,6 @@ namespace bahrsDB.Controllers
             //se estiver associada retorna a pagina
             if (verificaSeEstarAssociado)
             {
-
                 TempData["Mensagem"] = "O veículo ainda está vinculado a uma vaga.";
                 return RedirectToAction(nameof(Index));
             }
