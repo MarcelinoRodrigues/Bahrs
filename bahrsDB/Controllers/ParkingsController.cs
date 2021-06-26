@@ -69,12 +69,20 @@ namespace bahrsDB.Controllers
             {
                 //Pegando A VagaID
                 var vaga = await _context.Vacancy.FindAsync(parking.VagaId);
+                //Pegando o VeiculoID
+                var veiculo = await _context.Vehicle.FindAsync(parking.VeiculoId);
 
                 //Ao ser incluido um estacionamento a vaga altera seu Status para Desativado
                 if( _context.Vacancy.Any(e => e.Id == parking.VagaId))
                 {
                     vaga.Status = Status.Desativado;
                     _context.Vacancy.Update(vaga);
+                }
+                //Ao ser incluido um estacionamento o veiculo altera seu Status para Desativado
+                if (_context.Vehicle.Any(e => e.Id == parking.VeiculoId))
+                {
+                    veiculo.Status = Status.Desativado;
+                    _context.Vehicle.Update(veiculo);
                 }
 
                 //a Entrada do veiculo no estacionamento não pode ter um horário maior que a saída.
@@ -190,12 +198,20 @@ namespace bahrsDB.Controllers
 
             //Pegando A VagaID
             var vaga = await _context.Vacancy.FindAsync(parking.VagaId);
+            //Pegando o VeiculoID
+            var veiculo = await _context.Vehicle.FindAsync(parking.VeiculoId);
 
             //Ao ser excluido um estacionamento a vaga altera seu Status para Ativo
             if (_context.Vacancy.Any(v => v.Id == parking.VagaId))
             {
                 vaga.Status = Status.Ativo;
                 _context.Vacancy.Update(vaga);
+            }
+            //Ao ser excluido um estacionamento o veiculo altera seu Status para Ativo
+            if (_context.Vehicle.Any(v => v.Id == parking.VeiculoId))
+            {
+                veiculo.Status = Status.Ativo;
+                _context.Vehicle.Update(veiculo);
             }
 
             await _context.SaveChangesAsync();
