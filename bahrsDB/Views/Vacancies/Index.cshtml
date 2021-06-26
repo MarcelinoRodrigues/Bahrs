@@ -48,7 +48,7 @@
             Excluir(id) {
 
                 alertify.confirm("ESTACIONAMENTO", "Confirma exclusão do registro?", function () {
-                    window.location.href = "Vacancies/Delete/" + id;
+                    window.location.href = "Delete/" + id;
                 }, function () {
                     alertify.error('Operação cancelada');
                 }).set({ labels: { ok: 'Confirmar', cancel: 'Cancelar' } });
