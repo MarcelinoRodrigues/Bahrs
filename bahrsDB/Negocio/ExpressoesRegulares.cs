@@ -57,9 +57,9 @@ namespace bahrsDB.Negocio
 
         /// <summary>
         /// Valida Vagas de estacionamento
-        /// Duas letras ou uma Letra e um numero
+        /// Duas letras ou uma Letra e um numero ou dois numeros
         /// </summary>
-        public const string vagasValidas = @"^[A-Z]{2}|[A-Z]+[0-9]$";
+        public const string vagasValidas = @"^[A-Z]{2}|[A-Z]+[0-9]|[0-9]{2}$";
 
         /// <summary>
         /// Valida Placas de Veiculos

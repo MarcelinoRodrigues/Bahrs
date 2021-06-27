@@ -22,7 +22,7 @@ namespace bahrsDB.Models
         /// <summary>
         /// Nome da vaga
         /// </summary>
-        [RegularExpression(ExpressoesRegulares.vagasValidas,ErrorMessage = "A Vaga deve ter Duas letras ou uma Letra e um numero(Letras Maiusculas)")]
+        [RegularExpression(ExpressoesRegulares.vagasValidas,ErrorMessage = "A Vaga deve ter Duas letras ou uma Letra e um numero ou dois numeros(Letras Maiusculas)")]
         [Required(ErrorMessage = "Informe o {0}")]
         public string Nome { get; set; }
 
