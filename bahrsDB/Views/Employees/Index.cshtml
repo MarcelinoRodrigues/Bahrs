@@ -1,8 +1,6 @@
 ﻿@model IEnumerable<bahrsDB.Models.Employee>
 
-@{
-    ViewData["Title"] = "Funcionarios";
-}
+@{ ViewData["Title"] = "Funcionarios"; }
 
 <h2>@ViewData["Title"]</h2>
 
@@ -22,20 +20,36 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Id)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Nome)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Editar</a>
-                <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-warning">Detalhes</a>
-                <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-danger">Excluir</a>
-            </td>
-        </tr>
-}
+        @foreach (var item in Model)
+        {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Nome)
+    </td>
+    <td>
+        <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-success">Editar</a>
+        <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-warning">Detalhes</a>
+        <a onclick="vaga.Excluir(@item.Id)" class="btn btn-danger">Excluir</a>
+    </td>
+</tr>}
     </tbody>
 </table>
+
+@section scripts{
+    <script>
+        var vaga = {
+
+            Excluir(id) {
+
+                alertify.confirm("ESTACIONAMENTO", "Confirma exclusão do registro?", function () {
+                    window.location.href = "Delete/" + id;
+                }, function () {
+                    alertify.error('Operação cancelada');
+                }).set({ labels: { ok: 'Confirmar', cancel: 'Cancelar' } });
+
+            }
+        }</script>
+}
