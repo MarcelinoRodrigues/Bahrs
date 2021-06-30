@@ -55,6 +55,7 @@ namespace bahrsDB.Models
         /// valor do estacionamento
         /// </summary>
         [Required]
+        [DisplayFormat(DataFormatString = "{0:C}")]
         public decimal Valor { get; set; }
         /// <summary>
         /// Id do veiculo
