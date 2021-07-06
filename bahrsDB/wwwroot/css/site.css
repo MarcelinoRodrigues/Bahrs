@@ -29,9 +29,52 @@ body {
 }
 
 /* Hide/rearrange for smaller screens */
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 480px) {
     /* Hide captions */
     .carousel-caption {
         display: none;
+    }
+    .content{
+        width:94%;
+    }
+    thead{
+        display:none;
+    }
+    tbody td {
+        display: flex;
+        flex-direction: column;
+    }
+    td {
+        padding: 7px 0;
+        text-align:center;
+    }
+}
+
+@media only screen and (min-width: 1200px) {
+    /* Hide captions */
+    .content {
+        width: 100%;
+    }
+    th,td{
+        padding: 7px 0;
+    }
+    tbody tr td:nth-child(1) {
+        width: 5%;
+    }
+
+    tbody tr td:nth-child(2) {
+        width: 10%;
+    }
+
+    tbody tr td:nth-child(3) {
+        width: 10%;
+    }
+
+    tbody tr td:nth-child(4) {
+        width: 10%;
+    }
+
+    tbody tr td:nth-child(5) {
+        width: 10%;
     }
 }
