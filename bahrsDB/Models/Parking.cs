@@ -24,8 +24,8 @@ namespace bahrsDB.Models
         /// <summary>
         /// entrada
         /// </summary>
-        [DataType(DataType.Time)]
-        [DisplayFormat(DataFormatString = "{0:HH:mm:ss}")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy hh:mm tt}")]
         [Required]
         public DateTime Entrada { get; set; }
         /// <summary>
@@ -35,8 +35,8 @@ namespace bahrsDB.Models
         /// <summary>
         /// vencimento da vaga do estacionamento
         /// </summary>
-        [DataType(DataType.Time)]
-        [DisplayFormat(DataFormatString = "{0:HH:mm:ss}")]
+        [DataType(DataType.DateTime)]
+        [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy hh:mm tt}")]
         [Required]
         public DateTime Vencimento { get; set; }
         /// <summary>
