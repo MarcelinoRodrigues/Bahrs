@@ -46,12 +46,13 @@ namespace bahrsDB
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            var enUS = new CultureInfo("en-US");
+
+            var supportedCultures = new[] { new CultureInfo("pt-BR") };
             var localizationOptions = new RequestLocalizationOptions
             {
-                DefaultRequestCulture = new RequestCulture(enUS),
-                SupportedCultures = new List<CultureInfo> { enUS },
-                SupportedUICultures = new List<CultureInfo> { enUS }
+                DefaultRequestCulture = new RequestCulture(culture: "pt-BR", uiCulture: "pt-BR"),
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
             };
 
             app.UseRequestLocalization(localizationOptions);
