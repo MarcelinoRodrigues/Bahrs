@@ -8,6 +8,9 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
+h2 {
+    color: #ffffff !important;
+}
 .table{
     background:#ffffff;
 }
