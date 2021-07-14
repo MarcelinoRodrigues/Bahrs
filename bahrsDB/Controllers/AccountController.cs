@@ -21,7 +21,7 @@ namespace bahrsDB.Controllers
         }
         void connectionString()
         {
-            con.ConnectionString = "Server=LAPTOP-D2CCMIVK\\SQLEXPRESS;Database=SystemMRN;Trusted_Connection=True;";
+            con.ConnectionString = "Server=DIEGO-DEV;Database=master;Trusted_Connection=True;";
         }
         [HttpPost]
         public IActionResult Verify(Account acc)
