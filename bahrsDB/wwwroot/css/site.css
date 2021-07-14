@@ -8,7 +8,7 @@ body {
     background-repeat: no-repeat;
     background-size: cover;
 }
-h2,h4 {
+h2,h3,h4 {
     color: #ffffff !important;
 }
 .table{
@@ -102,7 +102,7 @@ h2,h4 {
     pointer-events: none;
     cursor: default;
 }
-.dl-horizontal{
+.dl-horizontal, .col-md-4{
     background-color: #ffffff;
     padding: 1em;
 }
