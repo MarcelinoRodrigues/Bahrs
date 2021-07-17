@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - bahrsDB</title>
+    <title>BaseCar - @ViewData["Title"]</title>
 
     <environment include="Development">
         <link rel="stylesheet" href="~/css/basic.css" />
@@ -23,54 +23,59 @@
 
 </head>
 <body>
-    <div class="wrapper">
 
-    <nav class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="mynav_navbar">
-                <div class="mynav_dropdown">
-                    <button class="mynav_dropbtn">
-                        <a asp-area="" asp-controller="Parkings" asp-action="Index">Estacionamento</a>
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="mynav_dropdown-content">
-                        <a asp-area="" asp-controller="Vehicles" asp-action="Index">Veiculos</a>
-                        <a asp-area="" asp-controller="Employees" asp-action="Index">Funcionário</a>
-                        <a asp-area="" asp-controller="Vacancies" asp-action="Index">Vagas de Estacionamento</a>
-                    </div>
+    <div class="wrapper">
+        <nav class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="card-header">
+                    <a class="navbar-brand" href="#">
+                        <img src="~/images/logo2.PNG" width="135" height="55" />
+                    </a>
                 </div>
-                <div class="mynav_dropdown">
-                    <button class="mynav_dropbtn">
-                        <a asp-area="" asp-controller="Parkings" asp-action="Index">Configurações</a>
-                        <i class="fa fa-caret-down"></i>
-                    </button>
-                    <div class="mynav_dropdown-content">
-                        <a asp-area="" asp-controller="Vehicles" asp-action="Index">Alterar Senha</a>
+                <div class="mynav_navbar">
+                    <div class="mynav_dropdown">
+                        <button class="mynav_dropbtn">
+                            <a asp-area="" asp-controller="Parkings" asp-action="Index">Estacionamento</a>
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="mynav_dropdown-content">
+                            <a asp-area="" asp-controller="Vehicles" asp-action="Index">Veiculos</a>
+                            <a asp-area="" asp-controller="Employees" asp-action="Index">Funcionário</a>
+                            <a asp-area="" asp-controller="Vacancies" asp-action="Index">Vagas de Estacionamento</a>
+                        </div>
                     </div>
-                </div>
-                <div class="mynav_dropdown">
-                    <button class="mynav_dropbtn">
-                        <a asp-area="" asp-controller="Account" asp-action="Login">Sair</a>
-                    </button>
+                    <div class="mynav_dropdown">
+                        <button class="mynav_dropbtn">
+                            <a asp-area="" asp-controller="Parkings" asp-action="Index">Configurações</a>
+                            <i class="fa fa-caret-down"></i>
+                        </button>
+                        <div class="mynav_dropdown-content">
+                            <a asp-area="" asp-controller="Vehicles" asp-action="Index">Alterar Senha</a>
+                        </div>
+                    </div>
+                    <div class="mynav_dropdown">
+                        <button class="mynav_dropbtn">
+                            <a asp-area="" asp-controller="Account" asp-action="Login">Sair</a>
+                        </button>
+                    </div>
                 </div>
             </div>
+        </nav>
+
+        <partial name="_CookieConsentPartial" />
+
+        <div class="container body-content">
+            @RenderBody()
         </div>
-    </nav>
-
-    <partial name="_CookieConsentPartial" />
-
-    <div class="container body-content">
-        @RenderBody()
-    </div>
 
 
-    <footer class="footer navbar-fixed-bottom">
-        <div class="pull-right hidden-xs">
-            <b>versão</b> 1.0.0
-        </div>
-        <strong>Copyright &copy; @DateTime.Now.Year </strong><br />
-        <i>DM Soluções</i>
-    </footer>
+        <footer class="footer navbar-fixed-bottom">
+            <div class="pull-right hidden-xs">
+                <b>versão</b> 1.0.0
+            </div>
+            <strong>Copyright &copy; @DateTime.Now.Year </strong><br />
+            <i>DM Soluções</i>
+        </footer>
 
     </div>
 

@@ -8,11 +8,14 @@
 
     <div class="container-login">
         <div class="d-flex justify-content-center h-100">
+            <div class="card-header">
+                <a class="navbar-brand-login" href="#">
+                    <img src="~/images/logo2.PNG" width="200" height="50" />
+                </a>
+            </div>
             <div class="card">
-                <div class="card-header">
-                    <h3>CAR BURN GESTÃO</h3>
-                </div>
                 <div class="card-body">
+
                     <form asp-action="Verify" method="post" style="margin:0 auto;">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="input-group form-group">
@@ -25,8 +28,8 @@
                             <div class="input-group-prepend">
                                 <span class="input-group-text"><i class="fa fa-lock"></i></span>
                             </div>
-                            <input name="Senha" type="password" class="form-control" required  placeholder="Senha"/>
-                            
+                            <input name="Senha" type="password" class="form-control" required placeholder="Senha" />
+
                         </div>
                         <div class="row align-items-center remember">
                             <input type="checkbox">Lembrar-me

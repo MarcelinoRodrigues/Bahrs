@@ -1,15 +1,12 @@
 ﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification\ 
 for details on configuring this project to bundle and minify static web assets. */
 body {
-    background-image: url(../images/fundobase.jpg);
+    /*background-image: url(../images/fundobase.jpg);*/
     padding-top: 50px;
     padding-bottom: 20px;
     margin: 0;
     background-repeat: no-repeat;
     background-size: cover;
-}
-h2,h3,h4 {
-    color: #ffffff !important;
 }
 .table{
     background:#ffffff;
@@ -99,18 +96,20 @@ h2,h3,h4 {
     margin-bottom: 0;
     border-width: 1px 0 0;
     padding: 25px;
-    pointer-events: none;
-    cursor: default;
 }
-.dl-horizontal, .col-md-4{
-    background-color: #ffffff;
-    padding: 1em;
+
+.navbar-brand {
+    float: left;
+    height: 50px;
+    font-size: 18px;
+    line-height: 20px;
+    padding: inherit;
 }
 
 
 /*Login*/
 .login-page {
-    background-image: url('../images/backLogin.jpg');
+    background-image: url('../images/fundobase.jpg');
     background-repeat: no-repeat;
     background-size: 100%;
     bottom: 0;
@@ -123,6 +122,13 @@ h2,h3,h4 {
     text-align: center;
     top: 0;
     background-size: cover;
+}
+.navbar-brand-login {
+    
+    display: inline;
+}
+.navbar-brand-login > img {
+    display: inline;
 }
 .login-page input{
     align-items:center;
@@ -218,3 +224,4 @@ h2,h3,h4 {
     margin-left: 4px;
     color:#ffffff;
 }
+
