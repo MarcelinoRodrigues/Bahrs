@@ -91,11 +91,18 @@ body {
 
 
 /* Footer*/
+footer.footer.navbar-fixed-bottom {
+    background: black;
+}
+
 .navbar-fixed-bottom {
     bottom: 0;
     margin-bottom: 0;
     border-width: 1px 0 0;
-    padding: 25px;
+    padding-inline-start: 100px;
+    padding-inline-end: 100px;
+    padding-block-start: 6px;
+    padding-block-end: 6px;
 }
 
 .navbar-brand {
