@@ -60,3 +60,6 @@
 .mynav_dropdown:hover .mynav_dropdown-content {
     display: block;
 }
+.wrapper{
+    padding: 20px;
+}
