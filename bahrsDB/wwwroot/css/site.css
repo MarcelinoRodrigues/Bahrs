@@ -44,6 +44,9 @@ body {
     .content{
         width:94%;
     }
+    .container-login {
+        width: 100%!important;
+    }
     thead{
         display:none;
     }
