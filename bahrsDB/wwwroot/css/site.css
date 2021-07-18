@@ -47,6 +47,9 @@ body {
     .container-login {
         width: 100%!important;
     }
+    p .btn-success {
+        margin-top: 55px;
+    }
     thead{
         display:none;
     }
