@@ -38,6 +38,9 @@ body {
 /* Hide/rearrange for smaller screens */
 @media screen and (max-width: 480px) {
     /* Hide captions */
+    .body-content {
+        margin-top: 100px;
+    }
     .carousel-caption {
         display: none;
     }
@@ -46,9 +49,6 @@ body {
     }
     .container-login {
         width: 100%!important;
-    }
-    p .btn-success {
-        margin-top: 55px;
     }
     thead{
         display:none;
