@@ -1,5 +1,7 @@
-﻿using bahrsDB.Models;
+﻿using bahrsDB.Data;
+using bahrsDB.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlClient;
@@ -10,6 +12,13 @@ namespace bahrsDB.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly bahrsDBContext _context;
+
+        public AccountController(bahrsDBContext context)
+        {
+            _context = context;
+        }
+
         SqlConnection con = new SqlConnection();
         SqlCommand com = new SqlCommand();
         SqlDataReader dr;
@@ -21,7 +30,7 @@ namespace bahrsDB.Controllers
         }
         void connectionString()
         {
-            con.ConnectionString = "Server=DIEGO-DEV;Database=master;Trusted_Connection=True;";
+            con.ConnectionString = "Server=LAPTOP-D2CCMIVK\\SQLEXPRESS;Database=SystemMRN;Trusted_Connection=True";
         }
         [HttpPost]
         public IActionResult Verify(Account acc)
@@ -41,6 +50,46 @@ namespace bahrsDB.Controllers
                 con.Close();
                 return View("Error");
             }
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> VerifyPassword(string nome)
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> VerifyPassword(string nome, [Bind("Nome,Senha")] Account acc)
+        {
+            var nomeChamador = _context.Account.Any(a => a.Nome == nome);
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    _context.Update(acc);
+                    await _context.SaveChangesAsync();
+                }
+                catch (DbUpdateConcurrencyException)
+                {
+                    if (!AccountExists(acc.Nome))
+                    {
+                        return NotFound();
+                    }
+                    else
+                    {
+                        throw;
+                    }
+                }
+                TempData["Mensagem"] = "Operação realizada com sucesso.";
+                return RedirectToAction(nameof(VerifyPassword));
+            }
+            return View(acc);
+        }
+
+        private bool AccountExists(string nome)
+        {
+            return _context.Account.Any(e => e.Nome == nome);
         }
     }
 }
