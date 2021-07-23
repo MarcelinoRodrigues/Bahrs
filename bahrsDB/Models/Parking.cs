@@ -37,8 +37,7 @@ namespace bahrsDB.Models
         /// </summary>
         [DataType(DataType.DateTime)]
         [DisplayFormat(DataFormatString = "{0:MM-dd-yyyy hh:mm tt}")]
-        [Required]
-        public DateTime Vencimento { get; set; }
+        public DateTime? Vencimento { get; set; }
         /// <summary>
         /// veiculo do estacionamento
         /// Um estacionamento pode ter um veiculo

@@ -63,3 +63,8 @@
 .wrapper{
     padding: 20px;
 }
+#naoPodeSerAlterado {
+    pointer-events: none;
+    cursor: default;
+    background-color: #eee;
+}

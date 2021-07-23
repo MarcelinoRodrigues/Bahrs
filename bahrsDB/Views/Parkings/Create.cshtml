@@ -15,13 +15,13 @@
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Entrada" class="control-label"></label>
-                <input asp-for="Entrada" class="form-control" required />
-                <span asp-validation-for="Entrada" class="text-danger"></span>
+                <input asp-for="Entrada" class="form-control" required id="naoPodeSerAlterado" />
+                <span asp-validation-for="Entrada" class="text-danger">* Não pode ser alterado</span>
             </div>
             <div class="form-group">
                 <label asp-for="Vencimento" class="control-label"></label>
-                <input asp-for="Vencimento" class="form-control" required />
-                <span asp-validation-for="Vencimento" class="text-danger"></span>
+                <input asp-for="Vencimento" class="form-control" id="naoPodeSerAlterado"/>
+                <span asp-validation-for="Vencimento" class="text-danger">* Não pode ser alterado</span>
             </div>
             <div class="form-group">
                 <label asp-for="Valor" class="control-label"></label>
