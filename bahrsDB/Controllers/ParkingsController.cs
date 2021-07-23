@@ -65,6 +65,8 @@ namespace bahrsDB.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("Id,Entrada,Vencimento,Valor,VeiculoId,FuncionarioId,VagaId")] Parking parking)
         {
+            //DateTime pegarHoraAtual = DateTime.Now;
+            //parking.Entrada = pegarHoraAtual;
             if (ModelState.IsValid)
             {
                 //Pegando A VagaID
